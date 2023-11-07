@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+.container {
+    margin: 100px auto;
+    width: 30vw;
+    height: 80vh;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(107, 107, 107);
+}
+
+.input-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 20px;
+}
+
+#screen1,
+#screen2 {
+    border: 1px solid #000;
+    height: 100%;
+    width: 100%;
+    font-size: 1.8rem;
+    text-align: left;
+    font-family: 'Orbitron';
+}
+
+#screen1 {
+    background-color: lightblue;
+    border-bottom: 0.5px solid lightblue;
+
+}
+
+#screen2 {
+    background-color: lightblue;
+    border-top: 0.5px solid #000;
+}
+
+.keys-container {
+    width: 90%;
+    height: 70%;
+    border: 1px solid #000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(150, 150, 150);
+}
+
+.row {
+    width: 100%;
+    height: 8%;
+}
+
+#clear {
+    font-size: 1rem;
+    width: 20%;
+    font-weight: bold;
+    background-color: rgb(252, 163, 178);
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
+
+button {
+    font-size: 2.5rem;
+    padding: 10px;
+    width: 22%;
+    font-family: 'Orbitron';
+}
+
+.number {
+    background-color: rgb(253, 188, 67);
+}
+
+.plus {
+    background-color: lightgreen;
+}
+
+.minus {
+    background-color: lightcoral;
+}
+
+.times {
+    background-color: lightseagreen;
+}
+
+.divide {
+    background-color: lightgoldenrodyellow;
+}
+
+.equals {
+    background-color: lightgray;
+}
+
+@media (max-width:1000px) {
+    button {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:900px) {
+    .container {
+        width: 60vw;
+    }
+
+    button {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width:500px) {
+    .container {
+        width: 80vw;
+    }
+
+    button {
+        font-size: 1.8rem;
+    }
+}
