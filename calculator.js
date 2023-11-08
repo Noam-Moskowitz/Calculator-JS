@@ -18,21 +18,21 @@ const divide = document.getElementById('/');
 const equals = document.getElementById('=');
 const clear = document.getElementById('clear');
 
-const N1 = 1;
-const N2 = 2;
-const N3 = 3;
-const N4 = 4;
-const N5 = 5;
-const N6 = 6;
-const N7 = 7;
-const N8 = 8;
-const N9 = 9;
-const N0 = 0;
+const N1 = "1";
+const N2 = '2';
+const N3 = '3';
+const N4 = '4';
+const N5 = '5';
+const N6 = '6';
+const N7 = '7';
+const N8 = '8';
+const N9 = '9';
+const N0 = '0';
 const Spls = "+";
 const Smns = '-';
 const Stms = '*';
 const Sdvd = '/';
-const Sdcml = '.'
+const Sdcml = '.';
 
 let swap = true;
 let input = screen1
@@ -51,58 +51,58 @@ clear.addEventListener("click", function () {
     document.location.reload();
 })
 one.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N1;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N1;
     input.innerHTML = equation;
 });
 two.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N2;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N2;
     input.innerHTML = equation;
 });
 three.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N3;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N3;
     input.innerHTML = equation;
 });
 four.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N4;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N4;
     input.innerHTML = equation;
 });
 five.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N5;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N5;
     input.innerHTML = equation;
 });
 six.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N6;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N6;
     input.innerHTML = equation;
 });
 seven.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N7;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N7;
     input.innerHTML = equation;
 });
 eight.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N8;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N8;
     input.innerHTML = equation;
 });
 nine.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N9;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N9;
     input.innerHTML = equation;
 });
 zero.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + N0;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + N0;
     input.innerHTML = equation;
 });
 decimal.addEventListener("click", function () {
-    let currentScreenValue = Number(input.innerHTML);
-    let equation = currentScreenValue + "" + Sdcml;
+    let currentScreenValue = input.innerHTML;
+    let equation = currentScreenValue + Sdcml;
     input.innerHTML = equation;
 });
 plus.addEventListener("click", function () {
