@@ -28,10 +28,6 @@ const N7 = '7';
 const N8 = '8';
 const N9 = '9';
 const N0 = '0';
-const Spls = "+";
-const Smns = '-';
-const Stms = '*';
-const Sdvd = '/';
 const Sdcml = '.';
 
 let swap = true;
@@ -109,29 +105,34 @@ plus.addEventListener("click", function () {
     input = screen2;
     operator = 1;
     screen2.style.backgroundColor = "lightgreen";
+    screen2.style.backgroundImage = "url(./Images/plus.svg)"
     dsble();
 });
 minus.addEventListener("click", function () {
     input = screen2;
     operator = 2;
     screen2.style.backgroundColor = "lightcoral";
+    screen2.style.backgroundImage = "url(./Images/minus.svg)"
     dsble();
 });
 times.addEventListener("click", function () {
     input = screen2;
     operator = 3;
     screen2.style.backgroundColor = "lightseagreen";
+    screen2.style.backgroundImage = "url(./Images/times.svg)"
     dsble();
 });
 divide.addEventListener("click", function () {
     input = screen2;
     operator = 4;
     screen2.style.backgroundColor = "lightgoldenrodyellow";
+    screen2.style.backgroundImage = "url(./Images/divide.svg)"
     dsble();
 });
 equals.addEventListener("click", function () {
     let a = Number(screen1.innerHTML);
     let b = Number(screen2.innerHTML);
+    screen2.style.backgroundImage = "url(./Images/equals.svg)"
     screen2.style.backgroundColor = 'lightgrey';
     if (operator == 1) {
         screen1.style.backgroundColor = 'black';

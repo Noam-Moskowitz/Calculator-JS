@@ -49,6 +49,10 @@ body {
 #screen2 {
     background-color: lightblue;
     border-top: 0.5px solid #000;
+    background-image: ;
+    background-position: right;
+    background-size: 5vh;
+    background-repeat: no-repeat;
 }
 
 .keys-container {
@@ -95,8 +99,6 @@ button,
     border: 1px solid #000;
 }
 
-
-
 .number {
     background-color: rgb(253, 188, 67);
 }
@@ -120,6 +122,8 @@ button,
 .equals {
     background-color: lightgray;
 }
+
+
 
 @media (max-width:1000px) {
 
