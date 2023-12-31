@@ -30,26 +30,24 @@ body {
     padding: 20px;
 }
 
-#screen1,
-#screen2 {
+.screen {
     border: 1px solid #000;
     height: 100%;
     width: 100%;
     font-size: 1.8rem;
     text-align: left;
     font-family: 'Orbitron';
+    background-color: lightblue;
+    overflow: hidden;
 }
 
 #screen1 {
-    background-color: lightblue;
     border-bottom: 0.5px solid lightblue;
 
 }
 
 #screen2 {
-    background-color: lightblue;
     border-top: 0.5px solid #000;
-    background-image: ;
     background-position: right;
     background-size: 5vh;
     background-repeat: no-repeat;
@@ -67,7 +65,7 @@ body {
     background-color: rgb(150, 150, 150);
 }
 
-.row {
+.fRow {
     width: 100%;
     height: 8%;
 }
@@ -79,10 +77,7 @@ body {
     background-color: rgb(252, 163, 178);
 }
 
-.row1,
-.row2,
-.row3,
-.row4 {
+.row {
     width: 100%;
     height: 18%;
     display: flex;

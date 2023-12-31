@@ -1,150 +1,104 @@
 const screen1 = document.getElementById('screen1');
 const screen2 = document.getElementById('screen2');
-const one = document.getElementById('1');
-const two = document.getElementById('2');
-const three = document.getElementById('3');
-const four = document.getElementById('4');
-const five = document.getElementById('5');
-const six = document.getElementById('6');
-const seven = document.getElementById('7');
-const eight = document.getElementById('8');
-const nine = document.getElementById('9');
-const zero = document.getElementById('0');
-const decimal = document.getElementById('.');
-const plus = document.getElementById('+');
-const minus = document.getElementById('-');
-const times = document.getElementById('x');
-const divide = document.getElementById('/');
-const equals = document.getElementById('=');
-const clear = document.getElementById('clear');
 
-const N1 = "1";
-const N2 = '2';
-const N3 = '3';
-const N4 = '4';
-const N5 = '5';
-const N6 = '6';
-const N7 = '7';
-const N8 = '8';
-const N9 = '9';
-const N0 = '0';
-const Sdcml = '.';
+const operatorButtons = [
+    document.getElementById(`+`),
+    document.getElementById(`-`),
+    document.getElementById(`x`),
+    document.getElementById(`/`)
+];
 
-let swap = true;
+const keysContainer = document.querySelector(`.keys-container`);
+const keysArray = [];
+const keys = document.querySelectorAll(`.key`)
+keys.forEach(key => {
+    keysArray.push(key)
+});
 let input = screen1
 let operator = 0;
 
-function dsble() {
-    if (operator !== 0) {
-        plus.disabled = true;
-        minus.disabled = true;
-        times.disabled = true;
-        divide.disabled = true;
-    }
+const disableOperators = () => {
+    operatorButtons.forEach(button => {
+        button.disabled = true;
+        document.getElementById(`=`).disabled = false;
+    });
+}
+const enableOperators = () => {
+    operatorButtons.forEach(button => {
+        button.disabled = false;
+    });
 }
 
-clear.addEventListener("click", function () {
-    document.location.reload();
-})
-one.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N1;
-    input.innerHTML = equation;
-});
-two.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N2;
-    input.innerHTML = equation;
-});
-three.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N3;
-    input.innerHTML = equation;
-});
-four.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N4;
-    input.innerHTML = equation;
-});
-five.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N5;
-    input.innerHTML = equation;
-});
-six.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N6;
-    input.innerHTML = equation;
-});
-seven.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N7;
-    input.innerHTML = equation;
-});
-eight.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N8;
-    input.innerHTML = equation;
-});
-nine.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N9;
-    input.innerHTML = equation;
-});
-zero.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + N0;
-    input.innerHTML = equation;
-});
-decimal.addEventListener("click", function () {
-    let currentScreenValue = input.innerHTML;
-    let equation = currentScreenValue + Sdcml;
-    input.innerHTML = equation;
-});
-plus.addEventListener("click", function () {
-    input = screen2;
-    operator = 1;
-    screen2.style.backgroundColor = "lightgreen";
-    screen2.style.backgroundImage = "url(./Images/plus.svg)"
-    dsble();
-});
-minus.addEventListener("click", function () {
-    input = screen2;
-    operator = 2;
-    screen2.style.backgroundColor = "lightcoral";
-    screen2.style.backgroundImage = "url(./Images/minus.svg)"
-    dsble();
-});
-times.addEventListener("click", function () {
-    input = screen2;
-    operator = 3;
-    screen2.style.backgroundColor = "lightseagreen";
-    screen2.style.backgroundImage = "url(./Images/times.svg)"
-    dsble();
-});
-divide.addEventListener("click", function () {
-    input = screen2;
-    operator = 4;
-    screen2.style.backgroundColor = "lightgoldenrodyellow";
-    screen2.style.backgroundImage = "url(./Images/divide.svg)"
-    dsble();
-});
-equals.addEventListener("click", function () {
-    let a = Number(screen1.innerHTML);
-    let b = Number(screen2.innerHTML);
-    screen2.style.backgroundImage = "url(./Images/equals.svg)"
-    screen2.style.backgroundColor = 'lightgrey';
-    if (operator == 1) {
-        screen1.style.backgroundColor = 'black';
-        screen2.innerHTML = a + b;
-    } else if (operator == 2) {
-        screen1.style.backgroundColor = 'black';
-        screen2.innerHTML = a - b;
-    } else if (operator == 3) {
-        screen1.style.backgroundColor = 'black';
-        screen2.innerHTML = a * b;
-    } else if (operator == 4) {
-        screen1.style.backgroundColor = 'black';
-        screen2.innerHTML = a / b;
+keysContainer.addEventListener('click', function (event) {
+    if (keysArray.indexOf(event.target) !== -1) {
+        if (event.target.textContent == `+`) {
+            input = screen2;
+            screen2.style.backgroundColor = "lightgreen";
+            screen2.style.backgroundImage = "url(./Images/plus.svg)"
+            operator = `+`;
+            disableOperators();
+            return
+        } else if (event.target.textContent == `-`) {
+            input = screen2;
+            screen2.style.backgroundColor = "lightcoral";
+            screen2.style.backgroundImage = "url(./Images/minus.svg)"
+            operator = `-`;
+            disableOperators();
+            return
+        } else if (event.target.textContent == `x`) {
+            input = screen2;
+            screen2.style.backgroundColor = "lightseagreen";
+            screen2.style.backgroundImage = "url(./Images/times.svg)"
+            operator = `*`;
+            disableOperators();
+            return
+        }
+        else if (event.target.textContent == `÷`) {
+            input = screen2;
+            screen2.style.backgroundColor = "lightgoldenrodyellow";
+            screen2.style.backgroundImage = "url(./Images/divide.svg)"
+            operator = `/`;
+            disableOperators();
+            return
+
+        } else if (event.target.textContent == `=`) {
+            screen1.textContent = solveEquation(Number(screen1.innerHTML), Number(screen2.innerHTML), operator);
+            screen1.style.backgroundColor = 'lightgrey';
+            screen2.textContent = '';
+            screen2.style.backgroundColor = `lightblue`;
+            screen2.style.backgroundImage = `none`;
+            document.getElementById(`=`).disabled = true;
+            input = screen1;
+            enableOperators();
+            return
+        }
+        else if (event.target.textContent == `C`) {
+            screen1.textContent = null;
+            screen2.textContent = null;
+            screen1.style.backgroundColor = `lightblue`;
+            screen2.style.backgroundColor = `lightblue`;
+            screen2.style.backgroundImage = `none`;
+            input = screen1;
+            enableOperators();
+            return
+        }
+        input.innerHTML += event.target.textContent;
     }
-});
+})
+
+const solveEquation = (num1, num2, operator) => {
+    let result = null;
+    if (operator == `+`) {
+        result = num1 + num2;
+    }
+    else if (operator == `-`) {
+        result = num1 - num2;
+    }
+    else if (operator == `*`) {
+        result = num1 * num2;
+    }
+    else if (operator == `/`) {
+        result = num1 / num2;
+    }
+    return result
+}
