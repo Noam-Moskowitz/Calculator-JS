@@ -15,7 +15,7 @@ keys.forEach(key => {
     keysArray.push(key)
 });
 let input = screen1
-let operator = 0;
+let action = undefined;
 
 const disableOperators = () => {
     operatorButtons.forEach(button => {
@@ -32,37 +32,25 @@ const enableOperators = () => {
 keysContainer.addEventListener('click', function (event) {
     if (keysArray.indexOf(event.target) !== -1) {
         if (event.target.textContent == `+`) {
-            input = screen2;
-            screen2.style.backgroundColor = "lightgreen";
-            screen2.style.backgroundImage = "url(./Images/plus.svg)"
-            operator = `+`;
+            distinguishOperator(`lightgreen`, `plus`);
             disableOperators();
             return
         } else if (event.target.textContent == `-`) {
-            input = screen2;
-            screen2.style.backgroundColor = "lightcoral";
-            screen2.style.backgroundImage = "url(./Images/minus.svg)"
-            operator = `-`;
+            distinguishOperator(`lightcoral`, `minus`);
             disableOperators();
             return
         } else if (event.target.textContent == `x`) {
-            input = screen2;
-            screen2.style.backgroundColor = "lightseagreen";
-            screen2.style.backgroundImage = "url(./Images/times.svg)"
-            operator = `*`;
+            distinguishOperator(`lightseagreen`, `times`);
             disableOperators();
             return
         }
         else if (event.target.textContent == `÷`) {
-            input = screen2;
-            screen2.style.backgroundColor = "lightgoldenrodyellow";
-            screen2.style.backgroundImage = "url(./Images/divide.svg)"
-            operator = `/`;
+            distinguishOperator(`lightgoldenrodyellow`, `divide`);
             disableOperators();
             return
 
         } else if (event.target.textContent == `=`) {
-            screen1.textContent = solveEquation(Number(screen1.innerHTML), Number(screen2.innerHTML), operator);
+            screen1.textContent = solveEquation(Number(screen1.innerHTML), Number(screen2.innerHTML));
             screen1.style.backgroundColor = 'lightgrey';
             screen2.textContent = '';
             screen2.style.backgroundColor = `lightblue`;
@@ -86,19 +74,26 @@ keysContainer.addEventListener('click', function (event) {
     }
 })
 
-const solveEquation = (num1, num2, operator) => {
+const solveEquation = (num1, num2,) => {
     let result = null;
-    if (operator == `+`) {
+    if (action == `plus`) {
         result = num1 + num2;
     }
-    else if (operator == `-`) {
+    else if (action == `minus`) {
         result = num1 - num2;
     }
-    else if (operator == `*`) {
+    else if (action == `times`) {
         result = num1 * num2;
     }
-    else if (operator == `/`) {
+    else if (action == `divide`) {
         result = num1 / num2;
     }
     return result
+}
+
+const distinguishOperator = (color, operatorName) => {
+    input = screen2;
+    screen2.style.backgroundColor = color;
+    screen2.style.backgroundImage = `url(./Images/${operatorName}.svg)`
+    action = operatorName;
 }
